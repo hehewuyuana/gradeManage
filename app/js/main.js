@@ -13,6 +13,23 @@ app.controller('MyController',function($scope){
 
 });
 app.controller('StuLoginController',function($scope){
+	$('form[name=myForm]').submit(function(ev){
+		//alert(1);
+		var user=$('#inputName').val();
+		var pass=$('#inputPass').val();
+		//alert(user+"|"+pass);
+		$.ajax({
+			type:'GET',
+			url:'php/validate.php',
+			data:"user="+user+"&pass="+pass,
+		}).done(function(resp,status,xhr){
+			if(resp==1){
+				window.location.href='gradeManage.html';
+			}
+		}).fail(function(){console.log("请求失败")});
+		ev.stopPropagation();
+		ev.preventDefault();
+	});
 
 });
 
@@ -35,4 +52,5 @@ app.config(['$routeProvider',function($routeProvider){
 }]);
 
 angular.bootstrap(document,['myApp']);
+
 

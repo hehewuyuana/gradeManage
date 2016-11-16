@@ -5,10 +5,10 @@ toastr.options = {
     progressBar: false,  
     positionClass: "toast-top-center",  
     onclick: null,  
-    showDuration: "100",  
-    hideDuration: "1000",  
-    timeOut: "0",  
-    extendedTimeOut: "1000",  
+    showDuration: 1000,  
+    hideDuration: 1000,  
+    timeOut: 1000,  
+    extendedTimeOut: 1000,  
     showEasing: "swing",  
     hideEasing: "linear",  
     showMethod: "fadeIn",  
@@ -24,6 +24,8 @@ $('.list-group a').click(function(){
 
 var app=angular.module('myApp',['ngRoute']);
 
+
+
 app.config(function($routeProvider){
 	$routeProvider
 		.when('/personInfo',{
@@ -34,33 +36,52 @@ app.config(function($routeProvider){
 			redirectTo:'/personInfo'
 		});
 });
-
-angular.bootstrap(document,['myApp']);
-
-app.controller('personInfoController',function($http,$scope){
+var newData=[];
+app.controller('personInfoController',function($http,$scope,$rootScope){
 	$http({
 		method:'POST',
 		url:'json/personInfo.json',
 		headers: {
 					'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8'
-		},
+		}
 	}).success(function(data,status,headers,config,statusText){
-		//toastr({title:'Success',priority:'success',message:'good nice'});
-		$scope.$apply(function(){
-			var newData=JSON.parse(data);
-			$scope.num=newData.num;
-			$scope.name=newData.name;
-			$scope.sex=newData.sex;
-			$scope.age=newData.age;
-			$scope.class=newData.class;
-			$scope.major=newData.major;
-			$scope.institute=newData.institute;
-			$scope.grade=newData.grade;
+			//alert(status);
+			 newData=data;
+			//alert(newData);
+			$scope.num=newData[0].num;
+			$scope.name=newData[0].name;
+			$scope.sex=newData[0].sex;
+			$scope.age=newData[0].age;
+			$scope.class=newData[0].class;
+			$scope.major=newData[0].major;
+			$scope.institute=newData[0].institute;
+			$scope.grade=newData[0].grade;
 			toastr.success('good nice');
-		});
-	}).error(function(data,status,headers,config,statusText){
-		//toastr({title:'Error',priority:'error',message:'bad luck'});
+	}).error(function(data,status,headers,config){
 		toastr.error('bad luck');
 	});
 });
+
+app.controller("MyController",function($scope,$http){
+	$http({
+		method:'POST',
+		url:'json/personInfo.json',
+		headers: {
+					'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8'
+		}
+	}).success(function(data,status,headers,config,statusText){
+			//alert(status);
+			var newData=data;
+			//alert(newData);
+			$scope.name=newData[0].name;
+			toastr.success('good nice');
+	}).error(function(data,status,headers,config){
+		toastr.error('bad luck');
+	});
+});
+
+angular.bootstrap(document,['myApp']);
+
+
+
 
