@@ -1,0 +1,25 @@
+body,h1,h2,h3,h4,h5,h6{
+	margin:0;
+	padding:0;
+}
+body{
+	font:normal 12px/1.5 "微软雅黑",Timer;
+}
+
+.nav{
+	font-size:22px;
+}
+.navbar-brand{
+	font-size:25px;
+}
+.title{
+	padding:20px 0;
+	color:#1097E8;
+}
+label.control-label{
+	font:normal 25px/1.5 "微软雅黑",Timer;
+}
+div.tip{
+	color:red;
+	font-size:20px;
+}

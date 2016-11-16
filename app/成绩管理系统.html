@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="css/vender/bootstrap.min.css">
+	<link rel="stylesheet" href="css/grade.css">
+	<!--build:js js/main.min.js -->
+	<!-- endbuild -->
+</head>
+
+
+<body>
+<div class="container-fluid">
+	<!-- 面板 -->
+	<div class="panel panel-primary">
+	  <div class="panel-heading">
+	   <h2>汉口学院学生成绩管理系统</h2>
+	  </div>
+	  <div class="panel-body">亲爱的孙辉同学，非常高兴您的到来，希望你能愉快的查阅您的成绩</div>
+
+	 <div class="list-group col-sm-2">
+	 		  <a href="#/personInfo" class="list-group-item active">个人信息</a>
+	 		  <a href="#" class="list-group-item">成绩综合</a>
+	 		  <a href="#" class="list-group-item">成绩图表</a>
+	 		  <a href="#" class="list-group-item">成绩分析</a>
+	 		  <a href="#" class="list-group-item">成绩反馈</a>
+	 </div>
+	 <div class="col-sm-8" ng-view>
+	 </div>
+	</div>
+	
+</div>
+	<script src="js/vender/angular.min.js"></script>
+	<script src="js/vender/jquery.min.js"></script>
+	<script src="js/vender/angular-route.min.js"></script>
+	<script src="js/vender/bootstrap.min.js"></script>
+	<script src="js/grade.js"></script>
+</body>
+</html>

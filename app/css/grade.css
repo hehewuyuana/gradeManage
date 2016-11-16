@@ -1,0 +1,15 @@
+*{
+	margin:0;
+	padding:0;
+}
+body{
+	font:normal 16px/1.5 '微软雅黑',Timer;
+}
+
+.list-group{
+	margin-top:20px;
+}
+.list-group + div {
+	margin-top:20px;
+	margin-left:20px;
+}

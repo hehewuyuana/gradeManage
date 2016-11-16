@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="css/vender/bootstrap.min.css">
+	<!--build:js js/main.min.js -->
+	<!-- endbuild -->
+</head>
+
+
+<body ng-controller="MyController">
+	<!-- toggle -->
+	<div class="container">
+	<!-- 登录导航条 -->
+		<nav class="navbar navbar-default" role="navigation">
+		  <div class="container-fluid">
+		    <!-- Brand and toggle get grouped for better mobile display -->
+		    <div class="navbar-header">
+		      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+		        <span class="sr-only">Toggle navigation</span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		      </button>
+		      <a class="navbar-brand" href="#">汉口学院成绩管理系统</a>
+		    </div>
+
+	       <!--  导航选项 -->
+		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav nav-pills" role="tablist">
+				  <li role="presentation" class="active"><a href="#/stuLogin">学生</a></li>
+				  <li role="presentation"><a href="#/teacherLogin">教师</a></li>
+				  <li role="presentation"><a href="#/managerLogin">管理员</a></li>
+				</ul>
+		    </div>
+
+		</nav>
+ 	</div>
+ 	 <!-- 登录框 -->
+    <div class="tab-content">
+   		 <div ng-view></div>
+	</div>
+
+
+	<script src="js/vender/angular.min.js"></script>
+	<script src="js/vender/jquery.min.js"></script>
+	<script src="js/vender/angular-route.min.js"></script>
+	<script src="js/vender/bootstrap.min.js"></script>
+	<script src="js/main.js"></script>
+</body>
+</html>
